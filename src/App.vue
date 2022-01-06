@@ -1,7 +1,13 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/" replace active-class="why-active">Home</router-link> |
+    <router-link to="/home" replace active-class="why-active">Home</router-link>
+    |
+    <router-link to="/about" replace active-class="why-active"
+      >About</router-link
+    >
+    |
+    <router-link to="/user/kobe" active-class="why-active">用户</router-link>
   </div>
   <router-view />
 </template>
@@ -25,6 +31,9 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+  .why-active {
+    color: #42b983;
   }
 }
 </style>

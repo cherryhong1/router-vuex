@@ -1,6 +1,20 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
+    <router-link
+      to="/home/manage"
+      active-class="why-active"
+      exact-active-class="why-exact"
+      >manage</router-link
+    >
+    |
+    <router-link
+      to="/home/shop"
+      active-class="why-active"
+      exact-active-class="why-exact"
+      >shop</router-link
+    >
+    <router-view></router-view>
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -16,3 +30,11 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.why-active {
+  color: #42b983;
+}
+.why-exact{
+  color: rgb(126, 153, 51);
+}
+</style>
