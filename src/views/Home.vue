@@ -14,7 +14,23 @@
       exact-active-class="why-exact"
       >shop</router-link
     >
-    <router-view></router-view>
+    |
+    <router-link
+      to="/home/message"
+      active-class="why-active"
+      exact-active-class="why-exact"
+      >message</router-link
+    >
+    <router-view v-slot="{ Component, route }">
+      <transition :name="route.meta.transition || 'fade'" mode="out-in">
+        <keep-alive>
+          <component
+            :is="Component"
+            :key="route.meta.usePathKey ? route.path : undefined"
+          />
+        </keep-alive>
+      </transition>
+    </router-view>
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -34,7 +50,7 @@ export default {
 .why-active {
   color: #42b983;
 }
-.why-exact{
+.why-exact {
   color: rgb(126, 153, 51);
 }
 </style>
