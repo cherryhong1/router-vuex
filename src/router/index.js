@@ -75,6 +75,11 @@ const routes = [
         name: "Mutation",
         component: () => import("../views/StoreDemo/Mutation.vue"),
       },
+      {
+        path: "action",
+        name: "Action",
+        component: () => import("../views/StoreDemo/Action.vue"),
+      },
     ],
   },
   {

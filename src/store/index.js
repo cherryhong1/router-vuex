@@ -1,5 +1,8 @@
 import { createStore } from "vuex";
 import { INCREASE_TEN } from "./mutation-types";
+import axios from "axios";
+import { Promise } from "core-js";
+
 export default createStore({
   state: {
     name: "lili",
@@ -22,6 +25,7 @@ export default createStore({
         count: 8,
       },
     ],
+    banner: [],
   },
   mutations: {
     increase(state, payload) {
@@ -32,6 +36,9 @@ export default createStore({
     },
     [INCREASE_TEN](state, payLoad) {
       state.counter += payLoad.num;
+    },
+    getBanner(state, payload) {
+      state.banner = payload;
     },
   },
   getters: {
@@ -46,6 +53,32 @@ export default createStore({
       return total;
     },
   },
-  actions: {},
+  actions: {
+    increaseAction(context, payload) {
+      console.log(context);
+      context.commit("increase", payload);
+    },
+    decreaseAction({ commit }) {
+      commit("decrease");
+    },
+    getBanner({ commit }) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get("http://123.207.32.32:8000/home/multidata")
+          .then((res) => {
+            console.log(res);
+            commit("getBanner", res.data.data.banner.list);
+            resolve("haha");
+          })
+          .catch((res) => {
+            reject(res);
+            console.log(res);
+          });
+      });
+    },
+    [INCREASE_TEN]({ commit }, payload) {
+      commit(INCREASE_TEN, payload);
+    },
+  },
   modules: {},
 });
