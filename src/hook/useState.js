@@ -1,14 +1,5 @@
-import { useStore, mapState } from "vuex";
-import { computed } from "vue";
-export function useState(mapper) {
-  const store = useStore();
-  const stateStoreFn = mapState(mapper);
-  const stateStore = {};
-  Object.keys(stateStoreFn).forEach((fnKey) => {
-    const fn = stateStoreFn[fnKey].bind({
-      $store: store,
-    });
-    stateStore[fnKey] = computed(fn);
-  });
-  return stateStore;
+import { mapState } from "vuex";
+import { useMapper } from "./useMapper";
+export default function useState(mapper){
+  return useMapper(mapper, mapState)
 }

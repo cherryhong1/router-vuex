@@ -2,7 +2,7 @@
   <div>
     <h2>state的使用</h2>
     <p>
-      {{ counter }}
+      {{ counter }}---{{age}}
       <!-- {{ sCounter }}---{{ $store.state.counter }}---{{ name }} ---{{
         counter
       }}---{{ age }}--{{ sName }}---{{ sAge }} -->
@@ -13,7 +13,8 @@
 <script>
 // import { computed } from "@vue/reactivity";
 // import { mapState, useStore } from "vuex";
-import {useState} from '../../hook/useState'
+import hook from '../../hook'
+console.log(hook)
 export default {
   // computed: {
   //   ...mapState({
@@ -40,7 +41,7 @@ export default {
     // return {
     //   ...stateStore,
     // };
-    const state1 = useState(["counter", "age", "name"])
+    const state1 = hook.useState(["counter", "age", "name"])
     return {
       ...state1
     }
