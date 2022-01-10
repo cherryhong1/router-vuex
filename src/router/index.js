@@ -68,7 +68,12 @@ const routes = [
       {
         path: "getter",
         name: "Getter",
-        component: () => import("../views/StoreDemo/Getter.vue")
+        component: () => import("../views/StoreDemo/Getter.vue"),
+      },
+      {
+        path: "mutation",
+        name: "Mutation",
+        component: () => import("../views/StoreDemo/Mutation.vue"),
       },
     ],
   },

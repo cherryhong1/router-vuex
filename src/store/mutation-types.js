@@ -1,0 +1,1 @@
+export const INCREASE_TEN = "increase_ten"

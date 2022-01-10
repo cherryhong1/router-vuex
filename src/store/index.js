@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-
+import { INCREASE_TEN } from "./mutation-types";
 export default createStore({
   state: {
     name: "lili",
@@ -23,7 +23,17 @@ export default createStore({
       },
     ],
   },
-  mutations: {},
+  mutations: {
+    increase(state, payload) {
+      state.counter += payload.num;
+    },
+    decrease(state) {
+      state.counter--;
+    },
+    [INCREASE_TEN](state, payLoad) {
+      state.counter += payLoad.num;
+    },
+  },
   getters: {
     logName: (state) => {
       return `姓名${state.name}`;
