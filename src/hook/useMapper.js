@@ -1,8 +1,7 @@
-import { computed } from "vue"
-import { useStore } from "vuex"
+import { computed } from "vue";
+import { useStore } from "vuex";
 
-export function useMapper(mapper, mapStatus){
-  console.log(mapStatus)
+export function useMapper(mapper, mapStatus) {
   const store = useStore();
   const stateStoreFn = mapStatus(mapper);
   const stateStore = {};
@@ -12,5 +11,6 @@ export function useMapper(mapper, mapStatus){
     });
     stateStore[fnKey] = computed(fn);
   });
+  console.log(stateStore)
   return stateStore;
 }

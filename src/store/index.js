@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 import { INCREASE_TEN } from "./mutation-types";
 import axios from "axios";
 import { Promise } from "core-js";
-
+import user from "./getters/user";
 export default createStore({
   state: {
     name: "lili",
@@ -80,5 +80,7 @@ export default createStore({
       commit(INCREASE_TEN, payload);
     },
   },
-  modules: {},
+  modules: {
+    user,
+  },
 });

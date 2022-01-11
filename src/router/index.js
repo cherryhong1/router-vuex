@@ -80,6 +80,11 @@ const routes = [
         name: "Action",
         component: () => import("../views/StoreDemo/Action.vue"),
       },
+      {
+        path: "modules",
+        name: "modules",
+        component: () => import("../views/StoreDemo/modules.vue"),
+      },
     ],
   },
   {
